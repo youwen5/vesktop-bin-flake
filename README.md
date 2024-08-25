@@ -37,7 +37,7 @@ Then, instead of installing the normal `pkgs.vesktop`, you can install:
 {
   environment.systemPackages = [
     # make sure to use the correct CPU architecture
-    inputs.vesktop-bin.packages.{pkgs.system}.vesktop
+    inputs.vesktop-bin.packages.${pkgs.system}.vesktop
   ];
 }
 ```
