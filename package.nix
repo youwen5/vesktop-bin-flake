@@ -2,7 +2,7 @@
   pkgs,
   system,
 }: {
-  default = with pkgs; let
+  vesktop = with pkgs; let
     pname = "vesktop";
     version = "1.5.3";
 
