@@ -3,6 +3,12 @@
 Provides an alternative binary package based on officially released AppImages for [Vesktop](https://github.com/Vencord/Vesktop), a custom
 Discord app, to avoid building the one in `nixpkgs` from source. Also provides an overlay to replace `pkgs.vesktop`.
 
+> [!WARNING]
+> Only use this flake if you have a good reason to. The `vesktop` package in nixpkgs is compiled from source
+> by CI and the majority of users will simply download the pre-built program from the binary cache,
+> which this flake provides no benefit over. Only use this if for some reason you find yourself building
+> Vesktop from source.
+
 ## Why
 
 I daily-drive an Asahi Linux Macbook with a custom Mesa driver and package. This causes some applications to be
