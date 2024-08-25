@@ -32,7 +32,7 @@
     desktopItem = makeDesktopItem {
       name = pname;
       desktopName = "Vesktop";
-      exec = "vesktop %U --ozone-platform-hint=wayland --enable-features=WaylandWindowDecorations --enable-wayland-ime";
+      exec = "vesktop %U --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations --enable-wayland-ime";
       icon = "vesktop";
       startupWMClass = "Vesktop";
       genericName = "Internet Messenger";
