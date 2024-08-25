@@ -1,7 +1,7 @@
 # vesktop-bin flake
 
 Provides an alternative binary package based on officially released AppImages for [Vesktop](https://github.com/Vencord/Vesktop), a custom
-Discord app, than the one in `nixpkgs`. Also provides an overlay to replace `pkgs.vesktop`.
+Discord app, to avoid building the one in `nixpkgs` from source. Also provides an overlay to replace `pkgs.vesktop`.
 
 ## Why
 
