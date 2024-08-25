@@ -21,7 +21,7 @@
     outputs
     // {
       overlays.default = final: prev: {
-        vesktop = outputs.${prev.system}.packages.vesktop;
+        vesktop = outputs.packages.${prev.system}.vesktop;
       };
     };
 }
