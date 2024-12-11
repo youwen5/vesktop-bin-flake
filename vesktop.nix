@@ -78,5 +78,6 @@ stdenv.mkDerivation {
         --prefix XDG_DATA_DIRS : "${gtk3}/share/gsettings-schemas/${gtk3.name}/"
 
     ln -s $out/lib/vesktop $out/bin/vesktop
+    cp -r ${./share} $out/share
   '';
 }
