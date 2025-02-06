@@ -1,23 +1,5 @@
 {
   "nodes": {
-    "flake-parts": {
-      "inputs": {
-        "nixpkgs-lib": "nixpkgs-lib"
-      },
-      "locked": {
-        "lastModified": 1733312601,
-        "narHash": "sha256-4pDvzqnegAfRkPwO3wmwBhVi/Sye1mzps0zHWYnP88c=",
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "rev": "205b12d8b7cd4802fbcb8e8ef6a0f1408781a4f9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1733759999,
@@ -34,50 +16,9 @@
         "type": "github"
       }
     },
-    "nixpkgs-lib": {
-      "locked": {
-        "lastModified": 1733096140,
-        "narHash": "sha256-1qRH7uAUsyQI7R1Uwl4T+XvdNv778H0Nb5njNrqvylY=",
-        "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/5487e69da40cbd611ab2cadee0b4637225f7cfae.tar.gz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/5487e69da40cbd611ab2cadee0b4637225f7cfae.tar.gz"
-      }
-    },
     "root": {
       "inputs": {
-        "flake-parts": "flake-parts",
-        "nixpkgs": "nixpkgs",
-        "vesktop-bin-aarch64": "vesktop-bin-aarch64",
-        "vesktop-bin-x86_64": "vesktop-bin-x86_64"
-      }
-    },
-    "vesktop-bin-aarch64": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1733428233,
-        "narHash": "sha256-1rBeTydPb+3cvB0Ex2kF7WiEznOB8spcK3aacsZnvHI=",
-        "type": "tarball",
-        "url": "https://github.com/Vencord/Vesktop/releases/download/v1.5.4/vesktop-1.5.4-arm64.tar.gz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://github.com/Vencord/Vesktop/releases/download/v1.5.4/vesktop-1.5.4-arm64.tar.gz"
-      }
-    },
-    "vesktop-bin-x86_64": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1733428227,
-        "narHash": "sha256-En1+KqdHgO5+uKTBB4WNJpUZypA4iNZYKUCafSjFM9Y=",
-        "type": "tarball",
-        "url": "https://github.com/Vencord/Vesktop/releases/download/v1.5.4/vesktop-1.5.4.tar.gz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://github.com/Vencord/Vesktop/releases/download/v1.5.4/vesktop-1.5.4.tar.gz"
+        "nixpkgs": "nixpkgs"
       }
     }
   },

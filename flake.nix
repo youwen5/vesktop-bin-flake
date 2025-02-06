@@ -3,40 +3,40 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    flake-parts.url = "github:hercules-ci/flake-parts";
-    vesktop-bin-aarch64 = {
-      url = "https://github.com/Vencord/Vesktop/releases/download/v1.5.4/vesktop-1.5.4-arm64.tar.gz";
-      flake = false;
-    };
-    vesktop-bin-x86_64 = {
-      url = "https://github.com/Vencord/Vesktop/releases/download/v1.5.4/vesktop-1.5.4.tar.gz";
-      flake = false;
-    };
   };
 
   outputs =
-    inputs@{
-      flake-parts,
+    {
       self,
-      ...
+      nixpkgs,
     }:
-    flake-parts.lib.mkFlake { inherit inputs; } {
+    let
       systems = [
         "x86_64-linux"
         "aarch64-linux"
       ];
-      perSystem =
-        { pkgs, system, ... }:
+      forAllSystems = nixpkgs.lib.genAttrs systems;
+    in
+    {
+      packages = forAllSystems (
+        system:
+        let
+          pkgs = import nixpkgs { inherit system; };
+          sources = builtins.fromJSON (builtins.readFile ./sources.json);
+        in
         {
-          packages.default = pkgs.callPackage ./vesktop.nix {
-            version = "1.5.4";
-            src = if system == "aarch64-linux" then inputs.vesktop-bin-aarch64 else inputs.vesktop-bin-x86_64;
+          default = pkgs.callPackage ./vesktop.nix {
+            inherit (sources) version;
+            src = pkgs.fetchurl {
+              inherit (sources.${system}) url hash;
+            };
           };
-        };
-      flake = {
-        overlays.default = final: prev: {
+        }
+      );
+      overlays = forAllSystems (system: {
+        default = final: prev: {
           vesktop = self.packages.${prev.system}.default;
         };
-      };
+      });
     };
 }
