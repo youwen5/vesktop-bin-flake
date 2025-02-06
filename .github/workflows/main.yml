@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 jobs:
-  lints:
+  amd64:
     name: Build for x86_64
     runs-on: ubuntu-latest
     steps:
@@ -16,6 +16,7 @@ jobs:
         uses: DeterminateSystems/nix-installer-action@main
       - run: nix flake check --all-systems
       - run: nix build
+  arm64:
     name: Build for arm64
     runs-on: ubuntu-24.04-arm
     steps:
@@ -25,4 +26,3 @@ jobs:
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
       - run: nix build
-
