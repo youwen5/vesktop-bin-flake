@@ -12,6 +12,7 @@ def commit_update []: nothing -> nothing {
     print $"Latest version is ($vesktop_latest.prev_tag), no updates found"
   } else {
     print $"Performed update from ($vesktop_latest.prev_tag) -> ($vesktop_latest.new_tag)"
+    nix flake update --commit-lock-file
   }
 }
 
