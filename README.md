@@ -5,19 +5,12 @@ for [Vesktop](https://github.com/Vencord/Vesktop), a custom Discord app, to
 avoid building the one in `nixpkgs` from source. Also provides an overlay to
 replace `pkgs.vesktop`.
 
-> [!WARNING]
-> Only use this flake if you have a good reason to. The `vesktop` package in nixpkgs is compiled from source
-> by CI and the majority of users will simply download the pre-built program from the binary cache,
-> which this flake provides no benefit over. Only use this if for some reason you find yourself building
-> Vesktop from source.
-
 ## Why
 
-I daily-drive an Asahi Linux Macbook with a custom Mesa driver and package. This causes some applications to be
-built from source since their derivations can't be substituted from `cache.nixos.org`. This is mostly fine,
-except Vesktop also compiles all of Electron, taking multiple hours on each update. This flake allows you to
-directly fetch a pre-built Vesktop binary from the official GitHub releases so you can avoid compiling it from source
-if you are unfortunate enough to have to do so.
+I daily-drive an Asahi Linux Macbook with a custom Mesa driver and package.
+This leads to some really weird glitches with the `nixpkgs` Vesktop package.
+Also in general electron apps are not too stable in `nixpkgs`. If you're
+experiencing any weird issues with the Vesktop in `nixpkgs`, try this flake!
 
 ## Outputs
 
@@ -41,7 +34,7 @@ Simply add it as a flake input as usual:
 Then, instead of installing the normal `pkgs.vesktop`, you can install:
 
 ```nix
-{pkgs, ...}:
+{pkgs, inputs, ...}:
 {
   environment.systemPackages = [
     # make sure to use the correct CPU architecture
