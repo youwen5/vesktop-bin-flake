@@ -33,10 +33,8 @@
           };
         }
       );
-      overlays = forAllSystems (system: {
-        default = final: prev: {
-          vesktop = self.packages.${prev.system}.default;
-        };
-      });
+      overlays.default = final: prev: {
+        vesktop = self.packages.${prev.system}.default;
+      };
     };
 }
