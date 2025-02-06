@@ -5,6 +5,8 @@ for [Vesktop](https://github.com/Vencord/Vesktop), a custom Discord app, to
 avoid building the one in `nixpkgs` from source. Also provides an overlay to
 replace `pkgs.vesktop`.
 
+It automatically updates as soon as a new Vesktop release is published.
+
 ## Why
 
 I daily-drive an Asahi Linux Macbook with a custom Mesa driver and package.
