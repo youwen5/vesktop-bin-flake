@@ -1,11 +1,4 @@
 {
-  "version": "1.5.5",
-  "x86_64-linux": {
-    "url": "https://github.com/Vencord/Vesktop/releases/download/v1.5.5/vesktop-1.5.5.tar.gz",
-    "hash": "sha256-aqTL8J4YlkmIhVrRnQuGGogyS39q0bMKxQtuAseMV60="
-  },
-  "aarch64-linux": {
-    "url": "https://github.com/Vencord/Vesktop/releases/download/v1.5.5/vesktop-1.5.5-arm64.tar.gz",
-    "hash": "sha256-Tz6y/QKgLEss6KD88GCXyXbWEfIYngb4sd7yzv/wtQE="
-  }
+  "version": "1.5.4"
 }
+
