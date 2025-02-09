@@ -3,7 +3,7 @@
   src,
   version,
   autoPatchelfHook,
-  libgbm,
+  mesa,
   libdrm,
   expat,
   libxkbcommon,
@@ -34,7 +34,7 @@ stdenv.mkDerivation {
       autoPatchelfHook
       makeShellWrapper
       wrapGAppsHook3
-      libgbm
+      mesa
       libdrm
       expat
       libxkbcommon
