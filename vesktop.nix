@@ -23,6 +23,10 @@
   pipewire,
   libpulseaudio,
   xorg,
+  # This option sets `--no-decommit-pooled-pages`, as electron seems to crash
+  # on 16k page machines (like Apple Silicon). A patch has already entered
+  # electron, so it can be removed once Vesktop picks it up
+  electronPageSizeFix ? false,
 }:
 stdenv.mkDerivation {
   inherit src version;
@@ -74,7 +78,9 @@ stdenv.mkDerivation {
     cp -r * $out/lib
     wrapProgramShell $out/lib/vesktop \
          "''${gappsWrapperArgs[@]}" \
-        --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform=wayland --enable-features=WaylandWindowDecorations --enable-wayland-ime=true}}" \
+        --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform=wayland --enable-features=WaylandWindowDecorations --enable-wayland-ime=true${
+          if electronPageSizeFix then " " + ''--js-flags="--no-decommit-pooled-pages"'' else ""
+        }}}" \
         --prefix XDG_DATA_DIRS : "${gtk3}/share/gsettings-schemas/${gtk3.name}/"
 
     ln -s $out/lib/vesktop $out/bin/vesktop
