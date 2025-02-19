@@ -30,6 +30,7 @@
             src = pkgs.fetchurl {
               inherit (sources.${system}) url hash;
             };
+            electronPageSizeFix = false;
           };
         }
       );
